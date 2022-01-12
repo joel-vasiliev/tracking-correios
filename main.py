@@ -6,11 +6,11 @@ from functions import clearConsole, welcome
 
 url = "https://www2.correios.com.br/sistemas/rastreamento/ctrl/ctrlRastreamento.cfm?"
 
-codigos = ['OQ366239704BR','OS474220058BR']
+codigos = ['OQ366239704BR']#,'OS474220058BR']
 clearConsole()
 welcome()
 
-print(f'Foram encontrados {len(codigos)} objetos!')
+print(f'Foi/foram encontrados {len(codigos)} objetos!')
 
 for i in codigos:
     try:
