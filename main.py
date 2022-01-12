@@ -13,13 +13,17 @@ welcome()
 print(f'Foram encontrados {len(codigos)} objetos!')
 
 for i in codigos:
-    req = requests.post(url=url, data={"objetos": i})
-    soup = BeautifulSoup(req.text, 'html.parser')
-    htmlobj = soup.find(id='UltimoEvento')
-    textoobj = htmlobj.strong.text
-    dataobj = htmlobj.text.split()[-1]
+    try:
 
-    print('=-------------------------------------------------------------------------=>')
-    print(f'|\033[1m {i} \033[0m                                                           |')
-    print(f'| {textoobj} no dia {dataobj}               |')
-    print('<=-------------------------------------------------------------------------=')
+        req = requests.post(url=url, data={"objetos": i})
+        soup = BeautifulSoup(req.text, 'html.parser')
+        htmlobj = soup.find(id='UltimoEvento')
+        textoobj = htmlobj.strong.text
+        dataobj = htmlobj.text.split()[-1]
+
+        print('=-------------------------------------------------------------------------=>')
+        print(f'|\033[1m {i} \033[0m                                                           |')
+        print(f'| {textoobj} no dia {dataobj}               |')
+        print('<=-------------------------------------------------------------------------=')
+    except Exeption as e:
+        print(e)
